@@ -1,0 +1,9 @@
+// config-file for DB_logger
+
+// MQTT
+IPbroker: 192.168.178.103
+Port: 1883
+Topics1: led/#
+Topics2: climate/#
+Topics3: pi/temps/#
+
