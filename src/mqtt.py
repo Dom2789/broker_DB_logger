@@ -1,11 +1,11 @@
 import paho.mqtt.client as mqtt
 from time import strftime
+from .paramters import Parameters
 import sqlite3 as sql
 
 
 class MQTT:
     def __init__(self, parameters:Parameters):
-        self.file_output_active = parameters.file_output_active
         self.path = parameters.path
         self.file_name = parameters.file_name
         self.broker_IP = parameters.broker_IP
@@ -26,13 +26,11 @@ class MQTT:
         message = msg.payload.decode()
         print(f"[{msg.topic}] {message}")
 
-        if self.file_output_active:
-            self.file_output(msg.topic, message)
 
 
     # subscribe method
     def subscribe(self):
-        client = mqtt.Client(protocol=mqtt.MQTTv311, transport="tcp")
+        client = mqtt.Client(protocol=mqtt.MQTTv5, transport="tcp")
         client.on_connect = self.on_connect
         client.on_message = self.on_message
 

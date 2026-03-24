@@ -7,3 +7,8 @@ Topics1: led/#
 Topics2: climate/#
 Topics3: pi/temps/#
 
+// database
+Path: temp/
+DB1: led.db
+DB2: climate.db
+DB3: pi.db
