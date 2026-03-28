@@ -14,7 +14,7 @@ class MQTT:
 
 
     # The callback for when the client receives a CONNACK response from the server.
-    def on_connect(self, client, userdata, flags, rc):
+    def on_connect(self, client, userdata, flags, rc, properties=None):
         print("Connected with result code " + str(rc))
 
         # Subscribing in on_connect() means that if we lose the connection and
@@ -38,11 +38,9 @@ class MQTT:
 
         print(f"subcribed to topic: {self.topic}")
 
-        # Blocking call that processes network traffic, dispatches callbacks and
-        # handles reconnecting.
-        # Other loop*() functions are available that give a threaded interface and a
-        # manual interface.
-        client.loop_forever()
+        client.loop_start()  # non-blocking, runs in background thread
+        return client        # caller holds reference to keep it alive
+
 
     def file_output(self, topic, message):
         header, tail = self.file_name.split(".")
