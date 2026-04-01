@@ -1,11 +1,13 @@
 from src.Config import Config
 from src.paramters import Parameters
 from src.mqtt import MQTT
+import src.logger as lg
 
 def main():
     print("Hello from broker-db-logger!")
     config = Config("/Users/dom/prog/broker_DB_logger/config.txt")
     print(config)
+    lg.setup_logging(config.get_item("PWDlog"), name_logfile="DB_logger_", add_date_to_name=True)
     ipbroker = config.get_item("IPbroker")
     port = int(config.get_item("Port"))
     path = config.get_item("Path")
@@ -15,7 +17,7 @@ def main():
     print(para_topic_1)
     print(para_topic_2)
     print(para_topic_3)
-    instances = [MQTT(para_topic_1), MQTT(para_topic_2), MQTT(para_topic_1)]
+    instances = [MQTT(para_topic_1), MQTT(para_topic_2), MQTT(para_topic_3)]
     clients = [mqtt_instance.subscribe() for mqtt_instance in instances]
     # keep main thread alive
     input("Press Enter to stop...")

@@ -1,5 +1,9 @@
 // config-file for DB_logger
 
+// directories
+PWDprot: /Users/dom/temp/
+PWDlog: /Users/dom/temp/
+
 // MQTT
 IPbroker: 192.168.178.100
 Port: 1883
@@ -8,7 +12,7 @@ Topics2: climate/#
 Topics3: pi/temps/#
 
 // database
-Path: temp/
+Path: /Users/dom/temp/
 DB1: led.db
 DB2: climate.db
 DB3: pi.db
