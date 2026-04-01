@@ -1,8 +1,8 @@
 // config-file for DB_logger
 
 // directories
-PWDprot: /Users/dom/temp/
-PWDlog: /Users/dom/temp/
+PWDprot: /home/pi/_prot
+PWDlog: /home/pi/_prot
 
 // MQTT
 IPbroker: 192.168.178.100
@@ -12,7 +12,7 @@ Topics2: climate/#
 Topics3: pi/temps/#
 
 // database
-Path: /Users/dom/temp/
+Path: /home/pi/database/
 DB1: led.db
 DB2: climate.db
 DB3: pi.db
